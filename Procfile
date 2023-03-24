@@ -1,1 +1,1 @@
-web: gunicorn nerd_cave.wsgi
+web: gunicorn NerdShop.wsgi
