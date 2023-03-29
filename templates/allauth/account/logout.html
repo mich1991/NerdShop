@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'auth.css' %}">
+{% endblock %}
+
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    Sign Out
+{% endblock %}
+{% block hero-subheading %}
+    We gonna miss you...
+{% endblock %}
+
+{% block title %}Nerd Shop - {% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="card border-primary mt-3 p-4 sign-out">
+        <h1 class="text-center">:(</h1>
+        <p class="text-center">{% trans 'Are you sure you want to sign out?' %}</p>
+
+        <form class="signup d-flex flex-column justify-content-center align-items-center gap-2"
+          id="signup_form" method="POST" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary" id="sign-out-button" type="submit">{% trans "Sign Out" %}</button>
+                </div>
+                <div class="col">
+                    <a class="btn btn-info" id="sign-out-button" href="{% url 'home' %}" type="button">{% trans "Stay" %}</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

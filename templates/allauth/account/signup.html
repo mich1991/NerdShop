@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'auth.css' %}">
+{% endblock %}
+
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    Sign Up
+{% endblock %}
+{% block hero-subheading %}
+    Come to the nerd side! We have a cookies.
+{% endblock %}
+
+{% block title %}Nerd Shop - {% trans "Sign Up" %}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="card border-primary mt-3 p-4">
+        <h1 class="text-center">{% trans "Sign Up" %}</h1>
+        <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+        <form class="signup d-flex flex-column justify-content-center align-items-center gap-2"
+              id="signup_form" method="POST" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

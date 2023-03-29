@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Nerd Cave blog about consoles - {% block meta_description %}{% endblock %}">
+    <meta name="description" content="Nerd Shop for consoles fans - {% block meta_description %}{% endblock %}">
     <title>{% block title %}{% endblock %}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png'%}">
@@ -36,10 +36,10 @@
                     <a class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">About</a>
                     <a class="nav-link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Contact</a>
                     {% if user.is_authenticated %}
-                        <a class="nav-link {% if request.resolver_match.url_name == 'accounts_logout' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Logout</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'accounts_logout' %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
                     {% else %}
-                        <a class="nav-link {% if request.resolver_match.url_name == 'accounts_signup' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Sign Up</a>
-                        <a class="nav-link {% if request.resolver_match.url_name == 'accounts_login' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Sign In</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'accounts_signup' %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'accounts_login' %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Sign In</a>
                     {% endif %}
                 </div>
             </div>
