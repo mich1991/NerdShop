@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'storages',
-    'home'
+    'home',
+    'profiles'
 ]
 
 SITE_ID = 1
