@@ -38,7 +38,7 @@
             <div class="navbar-nav ms-auto me-5 text-end">
                 {% if user.is_staff %}
                     <a class="nav-link {% if request.resolver_match.url_name == 'author_post_list' %}active{% endif %}"
-                       aria-current="page" href="{% url 'home' %}">Author Panel</a>
+                       aria-current="page" href="{% url 'home' %}">Admin Panel</a>
                 {% endif %}
                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
                    aria-current="page" href="{% url 'home' %}">Home</a>
@@ -61,7 +61,6 @@
                             <li><a class="dropdown-item text-white" href="{% url 'account_logout' %}">Log Out</a></li>
                         </ul>
                     </li>
-
                 {% else %}
                     <a class="nav-link {% if request.resolver_match.url_name == 'accounts_signup' %}active{% endif %}"
                        aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
@@ -127,8 +126,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <p>
-                        Thank you for visiting our blog, and we hope you enjoy reading our content as much as we enjoy
-                        writing it. Happy gaming!
+                        Thank you for visiting our store, and we hope you will find here something for yourself. Happy gaming and stay awesome!
                     </p>
                 </div>
             </div>
