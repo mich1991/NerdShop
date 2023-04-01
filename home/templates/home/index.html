@@ -15,5 +15,26 @@
     All in one place
 {% endblock %}
 {% block content %}
-    <h1>Test</h1>
+    <h1 class="text-center mt-5">Latest Arrivals</h1>
+    {% if ps5 %}
+        <section class="container-lg mt-4 latest-posts">
+            <hr>
+            <h2>PS5</h2>
+            <hr>
+            <div class="row"></div>
+            {% for product in ps5 %}
+                <div class="card col-lg-3 col-md-6 col-sm-12">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.short_description }}</p>
+                        <div class="d-flex justify-content-between">
+                        <a href="{% url 'home' %}" class="btn btn-primary">Read More</a>
+                        <a href="{% url 'home' %}" class="btn btn-primary">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
 {% endblock %}

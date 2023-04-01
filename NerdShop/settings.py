@@ -49,9 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_summernote',
     'storages',
     'home',
-    'profiles'
+    'profiles',
+    'products'
 ]
 
 SITE_ID = 1
