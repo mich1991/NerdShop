@@ -6,7 +6,7 @@
     url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
 {% endblock %}
 {% block css_files %}
-{#    <link rel="stylesheet" href="{% static 'index.css' %}">#}
+        <link rel="stylesheet" href="{% static 'index.css' %}">
 {% endblock %}
 {% block hero-heading %}
     New gen consoles goodies
@@ -21,27 +21,31 @@
             <hr>
             <h2>PS5</h2>
             <hr>
-            <div class="row"></div>
-            {% for product in ps5 %}
-                <div class="card border-primary col-lg-3 col-md-6 col-sm-12">
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
-                    <div class="card-body">
-                        <h3 class="card-title fs-3">{{ product.title }}</h3>
-                        <p class="card-text"><span class="badge rounded-pill bg-secondary">{{ product.category }} </span> </p>
-                        {% if product.on_sale %}
-                            <p class="text-danger text-center fs-3 fw-bold">€{{ product.sale_price }}
-                                <span class="text-muted fs-6 text-decoration-line-through">{{ product.price }}</span>
-                            </p>
-                        {% else %}
-                            <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
-                        {% endif %}
-                        <div class="d-flex justify-content-evenly gap-5">
-                            <a href="{% url 'home'  %}" class="btn btn-primary">Read More</a>
-                            <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
+            <div class="row">
+                {% for product in ps5 %}
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card border-primary mx-2 my-2">
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                            <div class="card-body">
+                                <h3 class="card-title fs-3">{{ product.title }}</h3>
+                                <p class="card-text"><span
+                                        class="badge rounded-pill bg-secondary">{{ product.category }} </span></p>
+                                {% if product.on_sale %}
+                                    <p class="text-danger text-center fs-3 fw-bold">€{{ product.sale_price }}
+                                        <span class="text-muted fs-6 text-decoration-line-through">{{ product.price }}</span>
+                                    </p>
+                                {% else %}
+                                    <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
+                                {% endif %}
+                                <div class="d-flex justify-content-evenly gap-5">
+                                    <a href="{% url 'home' %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </section>
     {% endif %}
 {% endblock %}
