@@ -6,7 +6,7 @@ from products.models import Product
 
 class HomePageView(View):
 	def get(self, request):
-		published_products = Product.objects.filter(status='1')
+		published_products = Product.objects.filter(status='1').filter(stock=1)
 		ps5_latest_products = published_products.filter(platform__name='PS5').order_by('-created_on')[:4]
 		xbox_latest_products = published_products.filter(platform__name='XBOX X/S').order_by('-created_on')[:4]
 		switch_latest_products = published_products.filter(platform__name='SWITCH').order_by('-created_on')[:4]
