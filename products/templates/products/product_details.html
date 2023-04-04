@@ -6,18 +6,85 @@
     url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
 {% endblock %}
 {% block hero-heading %}
-    404
+    {{ product.title }}
 {% endblock %}
 {% block hero-subheading %}
-    We couldn't find a page
+    {{ product.platform }} | {{ product.category }}
 {% endblock %}
 {% block content %}
-<div class="container my-4">
-    <div class="row">
-        <h2>Details</h2>
-        <pre>
-            {{ product }}
-        </pre>
+    <div class="container my-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 offset-lg-2 mt-5">
+                    <div class="card border-secondary">
+                        {% if product.image %}
+                            <a href="{{ product.image.url }}" target="_blank">
+                                <img class="card-img-top img-fluid rounded" src="{{ product.image.url }}"
+                                     alt="{{ product.title }}">
+                            </a>
+                        {% else %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                     alt="{{ product.title }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="product-details-container mb-5 mt-md-5">
+                        <p class="mb-0">{{ product.name }}</p>
+                        <p class="lead mb-0 text-left font-weight-bold text-warning">${{ product.price }}</p>
+                        <p class="small mt-1 mb-0">
+                            <a class="text-muted" href="{% url 'product_list' %}?category={{ product.category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ product.category.name }}
+                            </a>
+                        </p>
+                        <p class="mt-3">{{ product.short_description }}</p>
+                        <form class="form" action="{% url 'product_details' product.slug %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <p class="mt-3"><strong class="fw-bolder">Quantity:</strong></p>
+                                    <div class="form-group w-50">
+                                        <div class="input-group input-group-{{ product.id }}">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-primary rounded-0" type="button">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                                </button>
+                                            </div>
+                                            <input class="form-control text-center" type="number"
+                                                   name="quantity" value="1" min="1" max="99">
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-primary rounded-0">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <input type="submit" class="btn btn-secondary rounded-0 text-uppercase mt-5"
+                                           value="Add to Bag">
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% if product.long_description %}
+                <hr>
+                <h3>About Product</h3>
+                <hr>
+                <div class="row">
+                    {{ product.long_description | safe }}
+                </div>
+            {% endif %}
+        </div>
     </div>
-</div>
 {% endblock %}
