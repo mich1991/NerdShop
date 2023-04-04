@@ -24,7 +24,11 @@
                             </a>
                         {% else %}
                             <a href="">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                <img class="card-img-top img-fluid" src="{% if product.image %}
+                            {{ product.image.url }}
+                            {% else %}
+                            https://nerd-shop.s3.amazonaws.com/media/noimage.png
+                            {% endif %}"
                                      alt="{{ product.title }}">
                             </a>
                         {% endif %}
@@ -87,4 +91,5 @@
             {% endif %}
         </div>
     </div>
+    <script></script>
 {% endblock %}
