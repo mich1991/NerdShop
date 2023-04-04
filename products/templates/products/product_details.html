@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block meta_description %}404 page not found {% endblock %}
-{% block title %} Nerd Shop - 404 {% endblock %}
+{% block meta_description %}Nerd Shop - {{ product.title }} {% endblock %}
+{% block title %} Nerd Shop - {{ product.title }} {% endblock %}
 {% block hero-image-url %}
     url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
 {% endblock %}
@@ -73,7 +73,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <input type="submit" class="btn btn-secondary rounded-0 text-uppercase mt-5"
                                            value="Add to Bag">
@@ -90,6 +89,16 @@
                 <div class="row">
                     {{ product.long_description | safe }}
                 </div>
+            {% endif %}
+            {% if product.has_review %}
+                <hr>
+                <div class="d-flex align-items-baseline gap-2">
+                <h3>Still not sure?</h3>
+                <p class="fs-5"><span>Check our blog review of</span>
+                    <a href="{{ product.review_url }}" class="link-secondary fw-bold" target="_blank">{{ product.title }}</a>
+                </p>
+                </div>
+                <hr>
             {% endif %}
         </div>
     </div>
