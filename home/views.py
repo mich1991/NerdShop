@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from products.models import Product
+from .forms import ContactForm
 # Create your views here.
 
 
@@ -17,3 +18,22 @@ class HomePageView(View):
 			'switch': switch_latest_products
 		}
 		return render(request, 'home/index.html', ctx)
+
+
+class ContactPageView(View):
+	def get(self, request):
+		form = ContactForm()
+		ctx = {'form': form}
+		return render(request, 'home/contact.html', ctx)
+
+	def post(self, request):
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			form.save()
+			form = ContactForm()
+			ctx = {
+				'form': form,
+				}
+			return render(request, 'home/contact.html', ctx)
+		ctx = {'form': form}
+		return render(request, 'home/contact.html', ctx)
