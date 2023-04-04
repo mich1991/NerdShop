@@ -46,7 +46,7 @@
                                     <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
                                 {% endif %}
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
-                                    <a href="{% url 'home' %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read More</a>
                                     <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                     <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
                                 {% endif %}
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
-                                    <a href="{% url 'home' %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read More</a>
                                     <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                     <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
                                 {% endif %}
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
-                                    <a href="{% url 'home' %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read More</a>
                                     <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
                                 </div>
                             </div>
