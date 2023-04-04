@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta_description %}404 page not found {% endblock %}
+{% block title %} Nerd Shop - 404 {% endblock %}
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    404
+{% endblock %}
+{% block hero-subheading %}
+    We couldn't find a page
+{% endblock %}
+{% block content %}
+<div class="container my-4">
+    <div class="row">
+        <h2>Details</h2>
+        <pre>
+            {{ product }}
+        </pre>
+    </div>
+</div>
+{% endblock %}
