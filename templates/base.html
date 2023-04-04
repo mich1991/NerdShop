@@ -42,10 +42,12 @@
                 {% endif %}
                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
                    aria-current="page" href="{% url 'home' %}">Home</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}"
+                   aria-current="page" href="{% url 'product_list' %}">All Products</a>
                 <a class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}"
                    aria-current="page" href="{% url 'home' %}">About</a>
                 <a class="nav-link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}"
-                   aria-current="page" href="{% url 'home' %}">Contact</a>
+                   aria-current="page" href="{% url 'contact_us' %}">Contact</a>
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -95,27 +97,27 @@
             <div class="row text-center d-flex justify-content-center pt-3">
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!"
+                        <a href="{% url 'home' %}"
                            class="text-white nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
                     </h6>
                 </div>
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!"
-                           class="nav-link {% if request.resolver_match.url_name == 'posts_list' %}active{% endif %}">All
-                            Posts</a>
+                        <a href="{% url 'product_list' %}"
+                           class="nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}">All
+                            Products</a>
                     </h6>
                 </div>
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!"
+                        <a href="{% url 'home' %}"
                            class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}">About
                             us</a>
                     </h6>
                 </div>
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!"
+                        <a href="{% url 'contact_us' %}"
                            class="nav-link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">Contact</a>
                     </h6>
                 </div>
