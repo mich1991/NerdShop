@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block meta_description %}About Us Page {% endblock %}
+{% block css_files %}
+{% endblock %}
+{% block title %} Nerd Shop - About Us {% endblock %}
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    About Us
+{% endblock %}
+{% block hero-subheading %}
+    NerdShop - Your friendly nerds
+{% endblock %}
+{% block content %}
+    <div class="container my-4">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h1 class="mb-4 fw-bold">Welcome to Nerd Shop</h1>
+                <p>Your one-stop destination for the latest gaming consoles and accessories!</p>
+                <p>Our mission is to provide gamers with top-quality products at affordable prices.</p>
+                <p>At Nerd Shop, we understand the passion that gamers have for their craft. That's why we only carry
+                    the latest and greatest gaming consoles and accessories. Whether you're looking for the newest
+                    PlayStation or Xbox console, or the hottest gaming accessories like controllers, headsets, or gaming
+                    chairs, we have everything you need to enhance your gaming experience.</p>
+                <p>Our team is comprised of passionate gamers who are dedicated to helping you find the perfect products
+                    to suit your gaming needs. We stay up-to-date with the latest trends in gaming to ensure that we
+                    always have the most in-demand products available for our customers.</p>
+                <p>In addition to our products, we also have a blog website called <a
+                        href="https://nerd-cave.herokuapp.com/" target="_blank" class="link-secondary">Nerd Cave</a>.
+                    There, we share our thoughts and opinions on the latest gaming news, trends, and releases. Be sure
+                    to check it out!</p>
+                <p>At Nerd Shop, we are committed to providing exceptional customer service. We pride ourselves on being
+                    responsive to your questions and concerns, and we work hard to ensure that you are completely
+                    satisfied with your purchase.</p>
+                <p>Thank you for choosing Nerd Shop as your go-to destination for all things gaming. We look forward to
+                    serving you and helping you take your gaming experience to the next level.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875466/maurice-sahl-EfQgEyzzsBM-unsplash_j6i6zl.jpg"
+                     class="img-fluid" alt="About Us">
+            </div>
+        </div>
+    </div>
+{% endblock %}
