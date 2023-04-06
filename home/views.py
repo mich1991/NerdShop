@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 from products.models import Product
 from .forms import ContactForm
 # Create your views here.
@@ -37,3 +37,7 @@ class ContactPageView(View):
 			return render(request, 'home/contact.html', ctx)
 		ctx = {'form': form}
 		return render(request, 'home/contact.html', ctx)
+
+
+class AboutPageView(TemplateView):
+	template_name = 'home/about.html'
