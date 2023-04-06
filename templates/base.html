@@ -121,6 +121,12 @@
                            class="nav-link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}">Contact</a>
                     </h6>
                 </div>
+                <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="{% url 'policies' %}"
+                           class="nav-link {% if request.resolver_match.url_name == 'policies' %}active{% endif %}">Policies</a>
+                    </h6>
+                </div>
             </div>
         </section>
         <hr class="my-3">
@@ -128,7 +134,8 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <p>
-                        Thank you for visiting our store, and we hope you will find here something for yourself. Happy gaming and stay awesome!
+                        Thank you for visiting our store, and we hope you will find here something for yourself. Happy
+                        gaming and stay awesome!
                     </p>
                 </div>
             </div>
