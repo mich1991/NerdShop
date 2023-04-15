@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block meta_description %} Confirm delete an post {% endblock %}
+{% block title %}Nerd Cave - Delete Post {{ object.title }} {% endblock %}
+{% block css_files %}
+{#    <link rel="stylesheet" href="{% static 'author_post.css' %}">#}
+{% endblock %}
+
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    Delete Post
+{% endblock %}
+{% block hero-subheading %}
+    You are about to delete a post.
+{% endblock %}
+
+{% block content %}
+    <div class="container py-4 my-auto">
+        <div class="card border-primary">
+            <div class="card-body m-4">
+                <h3 class="text-center mb-3">Do you want to delete the post : <span class="text-secondary">{{ object.title }}</span></h3>
+                <form method="post" class="d-flex flex-column justify-content-center align-items-center gap-2">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-lg btn-primary" id="sign-out-button" type="submit">Yes</button>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-lg btn-info" id="sign-out-button" href="{% url 'author_post_list' %}" type="button">No</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

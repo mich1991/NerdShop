@@ -16,9 +16,10 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-          crossorigin="anonymous" referrerpolicy="no-referrer">
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"#}
+{#          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="#}
+{#          crossorigin="anonymous" referrerpolicy="no-referrer">#}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% block css_files %}{% endblock %}
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -37,8 +38,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto me-5 text-end">
                 {% if user.is_staff %}
-                    <a class="nav-link {% if request.resolver_match.url_name == 'author_post_list' %}active{% endif %}"
-                       aria-current="page" href="{% url 'home' %}">Admin Panel</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'admin_products_list' %}active{% endif %}"
+                       aria-current="page" href="{% url 'admin_products_list' %}">Admin Panel</a>
                 {% endif %}
                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
                    aria-current="page" href="{% url 'home' %}">Home</a>

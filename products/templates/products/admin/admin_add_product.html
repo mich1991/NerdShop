@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block meta_description %}Admin Add Product page{% endblock %}
+{% block title %}Nerd Shop - {% if edit %}Edit Product {{ form.title.value }} {% else %}Add Product{% endif %}{% endblock %}
+
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    {% if edit %}Edit Product{% else %}Add Product{% endif %}
+{% endblock %}
+{% block hero-subheading %}
+    {% if success %}
+        Product {% if edit %}edited{% else %}added{% endif %} successfully
+    {% elif edit%}
+        Currently editing post : " {{ form.title.value }} "
+    {% else %}“We are all apprentices in a craft where no one ever becomes a master.”—Ernest Hemingway{% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container py-4">
+        <div class="card border-primary">
+            <div class="card-body">
+                <h3>Adding Product as : <span class="text-secondary">{{ user.username }}</span></h3>
+                <form method="post" class="d-flex flex-column gap-3" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                    {% else %}
+                    <p>{{ field.name | capfirst }}*</p>
+                    {{ field }}
+                    {% endif %}
+                    {% endfor %}
+                    <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
