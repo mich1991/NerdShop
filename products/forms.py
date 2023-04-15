@@ -8,5 +8,5 @@ class ProductForm(forms.ModelForm):
 		model = Product
 		exclude = ('author', 'slug',)
 		widgets = {
-			'content': SummernoteWidget(),
+			'long_description': SummernoteWidget(),
 		}

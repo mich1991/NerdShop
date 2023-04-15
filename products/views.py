@@ -88,12 +88,12 @@ class AdminAddProductView(View):
 		}
 		return render(request, 'products/admin/admin_add_product.html', ctx)
 
-	def product(self, request):
+	def post(self, request):
 		form = ProductForm(request.POST, request.FILES)
 		if form.is_valid():
 			product = form.save(commit=False)
 			product.slug = slugify(product.title)
-			product.admin = request.user
+			product.author = request.user
 			product.save()
 			form = ProductForm()
 			ctx = {
@@ -115,7 +115,7 @@ class AdminEditProductView(View):
 		}
 		return render(request, 'products/admin/admin_add_product.html', ctx)
 
-	def product(self, request, pk):
+	def post(self, request, pk):
 		product_instance = Product.objects.get(pk=pk)
 		form = ProductForm(request.POST, request.FILES, instance=product_instance)
 		if form.is_valid():
