@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.views.generic import View, TemplateView
 from products.models import Product
-from .forms import ContactForm
+from .forms import ContactForm, NewsLetterForm
 # Create your views here.
 
 
@@ -45,3 +45,21 @@ class AboutPageView(TemplateView):
 
 class PoliciesPageView(TemplateView):
 	template_name = 'home/policies.html'
+
+
+class NewsLetterView(View):
+	def get(self):
+		return reverse('home')
+
+	def post(self, request):
+		print(request.POST)
+		form = NewsLetterForm(request.POST)
+		if form.is_valid():
+			form.save()
+			form = NewsLetterForm()
+			ctx = {
+				'form': form,
+			}
+			return redirect('home')
+		ctx = {'form': form}
+		return redirect('home', ctx)

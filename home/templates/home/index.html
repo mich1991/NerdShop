@@ -46,7 +46,8 @@
                                     <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
                                 {% endif %}
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
-                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read
+                                        More</a>
                                     <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
                                 </div>
                             </div>
@@ -82,7 +83,8 @@
                                     <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
                                 {% endif %}
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
-                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read
+                                        More</a>
                                     <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
                                 </div>
                             </div>
@@ -118,7 +120,8 @@
                                     <p class="text-center text-warning fs-3 fw-bold">€{{ product.price }}</p>
                                 {% endif %}
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
-                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read More</a>
+                                    <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read
+                                        More</a>
                                     <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
                                 </div>
                             </div>
@@ -127,5 +130,19 @@
                 {% endfor %}
             </div>
         </section>
+        <hr>
+        <aside class="container">
+            <h4 class="text-center mb-3">Join our inner circle and stay informed!</h4>
+            <form class="form-inline d-flex justify-content-center align-items-center" action="{% url 'news_letter' %}"
+                  method="post">
+                {% csrf_token %}
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" class="form-control form-control-lg bg-gradient placeholder-wave" id="email"
+                           placeholder="Enter your email">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary mb-2">Subscribe</button>
+            </form>
+        </aside>
     {% endif %}
 {% endblock %}
