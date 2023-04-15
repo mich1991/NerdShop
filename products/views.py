@@ -57,9 +57,7 @@ class AdminProductListView(ListView):
 
 	def get_queryset(self, **kwargs):
 		url_query = self.request.GET
-		base_query = super().get_queryset()
-		if self.request.user.is_superuser:
-			base_query = super().get_queryset().filter()
+		base_query = super().get_queryset().order_by('-created_on')
 		if url_query.get('title'):
 			base_query = base_query.filter(title__icontains=url_query.get('title'))
 		if url_query.get('category'):
