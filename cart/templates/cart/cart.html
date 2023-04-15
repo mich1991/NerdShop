@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cart_tools %}
 {% block title %} Nerd Shop - Products list {% endblock %}
 {% block meta_description %} products list {% endblock %}
 {% block css_files %}
@@ -20,12 +21,37 @@
             <hr>
             <h2>Shopping Cart</h2>
             <hr>
-            <div class="col-lg-9 order-lg-0 order-1">
+            <div class="col-lg-9">
                 <div class="d-flex flex-column flex-wrap gap-3">
                     {% for item in cart_items %}
-                        <p>
-                            {{ item.product }} {{ item.quantity }}
-                        </p>
+                        <div class="d-flex justify-content-between gap-3">
+                            <img src="{{ item.product.image.url }}" width="75" height="75"
+                                 alt="{{ item.product.title }}">
+                            <div>
+                                <p>{{ item.product.title }}</p>
+                            </div>
+                            <div>
+                                <p>Amount</p>
+                                <p>{{ item.quantity }}</p>
+                            </div>
+                            <div>
+                                <p>Price</p>
+                                <p>€{% if item.product.on_sale %}
+                                    {{ item.product.sale_price }}
+                                {% else %}
+                                    {{ item.product.price }}
+                                {% endif %} </p>
+                            </div>
+                            <div>
+                                <p>Total</p>
+                                <p class="text-warning">€{% if item.product.on_sale %}
+                                    {{ item.product.sale_price | calc_subtotal:item.quantity }}
+                                {% else %}
+                                    {{ item.product.price | calc_subtotal:item.quantity }}
+                                {% endif %} </p>
+                            </div>
+                        </div>
+                        <hr>
                     {% endfor %}
                 </div>
             </div>
@@ -52,8 +78,9 @@
                         </div>
                     </div>
                     <div>
-                        <a href="{% url 'home' %}" class="btn-lg btn btn-primary w-100 rounded-0 placeholder-wave">Proceed To
-                            Checkout</a>
+                        <a href="{% url 'home' %}" class="btn-lg btn btn-primary w-100 rounded-0 placeholder-wave">
+                            Proceed To Checkout
+                        </a>
                     </div>
                 </div>
             </div>
