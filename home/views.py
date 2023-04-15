@@ -11,7 +11,7 @@ class HomePageView(View):
 		ps5_latest_products = published_products.filter(platform__name='PS5').order_by('-created_on')[:4]
 		xbox_latest_products = published_products.filter(platform__name='XBOX X/S').order_by('-created_on')[:4]
 		switch_latest_products = published_products.filter(platform__name='SWITCH').order_by('-created_on')[:4]
-
+		print(request)
 		ctx = {
 			'ps5': ps5_latest_products,
 			'xbox': xbox_latest_products,

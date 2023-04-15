@@ -48,7 +48,14 @@
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
                                     <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read
                                         More</a>
-                                    <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
+                                    <div>
+                                        <form action="{% url 'add_to_cart' product.id %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <button type="submit" class="btn btn-warning">Add Cart
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +92,14 @@
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
                                     <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read
                                         More</a>
-                                    <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
+                                    <div>
+                                        <form action="{% url 'add_to_cart' product.id %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <button type="submit" class="btn btn-warning">Add Cart
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +136,14 @@
                                 <div class="d-flex justify-content-evenly gap-5 mb-2">
                                     <a href="{% url 'product_details' product.slug %}" class="btn btn-primary">Read
                                         More</a>
-                                    <a href="{% url 'home' %}" class="btn btn-warning">Add Cart</a>
+                                    <div>
+                                        <form action="{% url 'add_to_cart' product.id %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <button type="submit" class="btn btn-warning">Add Cart
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +159,8 @@
                 {% csrf_token %}
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" style="border: 1px solid" class="border-primary form-control form-control-lg bg-gradient placeholder-wave" id="email"
+                    <input type="email" name="email" style="border: 1px solid"
+                           class="border-primary form-control form-control-lg bg-gradient placeholder-wave" id="email"
                            placeholder="Enter your email">
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary mb-2">Subscribe</button>

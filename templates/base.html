@@ -75,8 +75,8 @@
                         <div class="text-center text-warning">
                             <i class="fas fa-shopping-bag"></i>
                             <span class="my-0">
-                                {% if grand_total %}
-                                    €{{ grand_total|floatformat:2 }}
+                                {% if total %}
+                                    €{{ total|floatformat:2 }}
                                 {% endif %}
                             </span>
                         </div>

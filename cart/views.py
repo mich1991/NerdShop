@@ -1,20 +1,31 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, TemplateView, DeleteView, View
 from products.models import Product
 from django.contrib import messages
 # Create your views here.
 
 
-class CartViewPage(ListView):
+class CartViewPage(TemplateView):
     template_name = 'cart/cart.html'
 
 
 class CartAddView(View):
-    def get(self, request):
-        return render(request, 'cart/cart.html')
-
-    def post(self, request):
-        return render(request, 'cart/cart.html')
+    def post(self, request, pk):
+        """Add a quantity of the specified product to the cart"""
+        if request.POST.get('quantity'):
+            quantity = int(request.POST.get('quantity'))
+        else:
+            quantity = 1
+        product_id = str(pk)
+        redirect_url = request.POST.get('redirect_url')
+        cart = request.session.get('cart', {})
+        print(request.session.get('cart_items'))
+        if product_id in list(cart.keys()):
+            cart[product_id] += quantity
+        else:
+            cart[product_id] = quantity
+        request.session['cart'] = cart
+        return redirect(redirect_url)
 
 
 class CartUpdateView(View):
