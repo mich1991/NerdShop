@@ -140,8 +140,7 @@ class AdminDeleteProductView(DeleteView):
 
 	def get_object(self):
 		pk = self.kwargs.get('pk')
-		admin_product = Product.objects.filter(admin=self.request.user)
-		return get_object_or_404(admin_product, pk=pk)
+		return get_object_or_404(Product, pk=pk)
 
 	def get_success_url(self):
-		return reverse('admin_product_list')
+		return reverse('admin_products_list')

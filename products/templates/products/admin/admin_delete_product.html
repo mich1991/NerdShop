@@ -5,7 +5,7 @@
 {% block meta_description %} Confirm delete an post {% endblock %}
 {% block title %}Nerd Cave - Delete Post {{ object.title }} {% endblock %}
 {% block css_files %}
-{#    <link rel="stylesheet" href="{% static 'author_post.css' %}">#}
+
 {% endblock %}
 
 {% block hero-image-url %}
@@ -30,7 +30,7 @@
                             <button class="btn btn-lg btn-primary" id="sign-out-button" type="submit">Yes</button>
                         </div>
                         <div class="col">
-                            <a class="btn btn-lg btn-info" id="sign-out-button" href="{% url 'author_post_list' %}" type="button">No</a>
+                            <a class="btn btn-lg btn-info" id="sign-out-button" href="{% url 'admin_products_list' %}" type="button">No</a>
                         </div>
                     </div>
 
