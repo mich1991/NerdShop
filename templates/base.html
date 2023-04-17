@@ -50,6 +50,8 @@
                    aria-current="page" href="{% url 'about_us' %}">About</a>
                 <a class="nav-link {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}"
                    aria-current="page" href="{% url 'contact_us' %}">Contact</a>
+                <a class="nav-link"
+                   aria-current="page" href="https://nerd-cave.herokuapp.com/" target="_blank">Visit Blog</a>
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -156,20 +158,20 @@
             </div>
         </div>
         <div class="text-center pb-4">
-            <a href="https://www.facebook.com/" target="_blank" class="text-white me-4">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white me-4">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://twitter.com/" target="_blank" class="text-white me-4">
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-white me-4">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="https://www.instagram.com/" target="_blank" class="text-white me-4">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white me-4">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.linkedin.com/in/micha%C5%82-wo%C5%BAniak-b86497174/" target="_blank"
+            <a href="https://www.linkedin.com/in/micha%C5%82-wo%C5%BAniak-b86497174/" target="_blank" rel="noopener"
                class="text-white me-4">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/mich1991" target="_blank" class="text-white me-4">
+            <a href="https://github.com/mich1991" target="_blank" rel="noopener" class="text-white me-4">
                 <i class="fab fa-github"></i>
             </a>
         </div>
