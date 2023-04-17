@@ -38,7 +38,6 @@ class OrdersPageView(View):
 		ctx = {
 			'orders': orders,
 		}
-
 		return render(request, 'profiles/orders.html', ctx)
 
 

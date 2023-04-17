@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cart_tools %}
 {% block title %} Nerd Shop - Orders {% endblock %}
 {% block meta_description %} User orders page {% endblock %}
 {% block hero-image-url %}
@@ -12,6 +13,54 @@
     All in one place
 {% endblock %}
 {% block content %}
-    <h1>Order Details</h1>
-    <h1>{{ object. }}</h1>
+    <a href="{% url 'user_orders' %}" class="btn btn-outline-info">Back to the list</a>
+    <div class="container d-flex justify-content-center mt-3 flex-wrap">
+        <div class="col-md-6">
+            <hr>
+            <h2>Products Ordered</h2>
+            <hr>
+            {% for item in order.lineitems.all %}
+                <div class="row mx-0">
+                    <div class="col-md-3 mb-1 mb-md-3">
+                        <a href="{% url 'product_details' item.product.id %}">
+                            {% if item.product.image %}
+                                <img class="img-fluid rounded" src="{{ item.product.image.url }}"
+                                     alt="{{ product.title }}">
+                            {% else %}
+                                <img class="img-fluid rounded" src="{{ STATIC_URL }}img/no-image.jpg"
+                                     alt="{{ product.title }}">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <p class="font-weight-bold mb-2">{{ item.product.title }}</p>
+                        <p class="small my-1">Quantity: {{ item.quantity }}
+                        </p>
+                        <p class="small my-1 ">Price: €{{ item.product.price }}</p>
+                        <p class="small my-1">Subtotal:
+                            <span class="text-warning">€{{ item.product.price|calc_subtotal:item.quantity }}</span>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6">
+            <hr>
+            <h2>Order Summary</h2>
+            <hr>
+            <p class="small mt-1 mb-0">Order Total: €{{ order.order_total }}</p>
+            <p class="small  mb-1">Delivery Cost: <span class="text-warning">€{{ order.delivery_cost }}</span></p>
+            <p class="lead">Grand Total: <span class="font-weight-bold text-warning">€{{ order.grand_total }}</span></p>
+            <hr>
+            <h2>Shipping details</h2>
+            <hr>
+            <p>Full Name: {{ order.full_name }}</p>
+            <p>Street Address 1: {{ order.street_address1 }}</p>
+            <p>Street Address 2: {{ order.street_address2 }}</p>
+            <p>City: {{ order.town_or_city }}</p>
+            <p>County: {{ order.county }}</p>
+            <p>Eir/Post Code: {{ order.postcode }}</p>
+
+        </div>
+    </div>
 {% endblock %}
