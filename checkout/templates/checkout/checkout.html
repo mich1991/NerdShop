@@ -22,26 +22,26 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Checkout</h2>
+                <h2 class="mb-4">Checkout</h2>
                 <hr>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+                <p>Order Summary ({{ product_count }})</p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small">Subtotal</p>
                     </div>
                 </div>
-                {% for item in bag_items %}
+                {% for item in cart_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
-                            <a href="{% url 'product_detail' item.product.id %}">
+                            <a href="{% url 'product_details' item.product.id %}">
                                 {% if item.product.image %}
                                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                 {% else %}
@@ -51,39 +51,40 @@
                         </div>
                         <div class="col-7">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            <p class="my-0 small">Size:
+                                {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 small">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-0">
-                <div class="row text-black text-right">
+                <div class="row text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0">€{{ total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong class="text-warning">${{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Please fill out the form below to complete your order</p>
+                <p class=>Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto text-white">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto text-white">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -91,47 +92,57 @@
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
-							{% if user.is_authenticated %}
-								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-							{% else %}
-								<label class="form-check-label" for="id-save-info">
+                            {% if user.is_authenticated %}
+                                <label class="form-check-label" for="id-save-info">Save this delivery information to my
+                                    profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info"
+                                       name="save-info" checked>
+                            {% else %}
+                                <label class="form-check-label" for="id-save-info">
                                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this
+                                    information
                                 </label>
-							{% endif %}
-						</div>
+                            {% endif %}
+                        </div>
                     </fieldset>
-                    <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                        <!-- A Stripe card element will go here -->
-                        <div class="mb-3" id="card-element"></div>
-                        <!-- Used to display form errors -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                        <!-- Pass the client secret to the view so we can get the payment intent id -->
-                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                    </fieldset>
-
-                    <div class="submit-button text-right mt-5 mb-2">
-						<a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
+                    <div class="card border-1 border-primary h-auto">
+                        <fieldset class="px-3">
+                            <div class="card-title">
+                                <legend class="fieldset-label small px-2 w-auto mt-2">Payment</legend>
+                                <hr>
+                            </div>
+                            <div class="card-body h-auto"><!-- A Stripe card element will go here -->
+                                <div class="mb-3" id="card-element"></div>
+                                <!-- Used to display form errors -->
+                                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                                <!-- Pass the client secret to the view so we can get the payment intent id -->
+                                <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                            </div>
+                        </fieldset>
+                        <div class="submit-button mt-5 mb-2">
+                            <div class="d-flex justify-content-around mb-2">
+                                <a href="{% url 'view_cart' %}" class="btn btn-outline-primary">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class="font-weight-bold">Adjust Bag</span>
-						</a>
-						<button id="submit-button" class="btn btn-black rounded-0">
-							<span class="font-weight-bold">Complete Order</span>
-							<span class="icon">
-								<i class="fas fa-lock"></i>
-							</span>
-						</button>
-						<p class="small text-danger my-0">
+                                    <span class="font-weight-bold">Edit Cart</span>
+                                </a>
+                                <button id="submit-button" class="btn btn-primary placeholder-wave">
+                                    <span class="font-weight-bold">Complete Order</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <p class="small text-danger my-0 text-center">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
-						</p>
-					</div>
+                                <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                            </p>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -143,4 +154,160 @@
             </span>
         </h1>
     </div>
+
+    <style>
+        .StripeElement,
+        .stripe-style-input {
+            box-sizing: border-box;
+            height: 40px;
+            padding: 10px 12px;
+            color: white;
+            background: #30115e;
+        }
+
+
+        #loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(23, 162, 184, .85);
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100%;
+        }
+
+    </style>
+
+    {% block extra_js %}
+        {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+        {{ client_secret|json_script:"id_client_secret" }}
+        {#        <script src="{% static 'checkout/js/stripe.js' %}"></script>#}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+                integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+            const clientSecret = $('#id_client_secret').text().slice(1, -1);
+            const stripe = Stripe(stripePublicKey);
+
+            const elements = stripe.elements();
+            const style = {
+
+                base: {
+                    color: '#fff',
+                    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                    fontSmoothing: 'antialiased',
+                    fontSize: '16px',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#dc3545',
+                    iconColor: '#dc3545'
+                }
+            };
+            const card = elements.create('card', {style: style});
+            card.mount('#card-element');
+
+            // Handle realtime validation errors on the card element
+            card.addEventListener('change', function (event) {
+                const errorDiv = document.getElementById('card-errors');
+                if (event.error) {
+                    const html = `
+                        <span class="icon" role="alert">
+                            <i class="fas fa-times"></i>
+                        </span>
+                        <span>${event.error.message}</span>
+                    `;
+                    $(errorDiv).html(html);
+                } else {
+                    errorDiv.textContent = '';
+                }
+            });
+
+            // Handle form submit
+            const form = document.getElementById('payment-form');
+
+            form.addEventListener('submit', function (ev) {
+                ev.preventDefault();
+                card.update({'disabled': true});
+                $('#submit-button').attr('disabled', true);
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
+
+                const saveInfo = Boolean($('#id-save-info').attr('checked'));
+                // From using {% csrf_token %} in the form
+                const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+                const postData = {
+                    'csrfmiddlewaretoken': csrfToken,
+                    'client_secret': clientSecret,
+                    'save_info': saveInfo,
+                };
+                const url = '/checkout/cache_checkout_data/';
+
+                $.post(url, postData).done(function () {
+                    stripe.confirmCardPayment(clientSecret, {
+                        payment_method: {
+                            card: card,
+                            billing_details: {
+                                name: $.trim(form.full_name.value),
+                                phone: $.trim(form.phone_number.value),
+                                email: $.trim(form.email.value),
+                                address: {
+                                    line1: $.trim(form.street_address1.value),
+                                    line2: $.trim(form.street_address2.value),
+                                    city: $.trim(form.town_or_city.value),
+                                    state: $.trim(form.county.value),
+                                }
+                            }
+                        },
+                        shipping: {
+                            name: $.trim(form.full_name.value),
+                            phone: $.trim(form.phone_number.value),
+                            address: {
+                                line1: $.trim(form.street_address1.value),
+                                line2: $.trim(form.street_address2.value),
+                                city: $.trim(form.town_or_city.value),
+                                postal_code: $.trim(form.postcode.value),
+                                state: $.trim(form.county.value),
+                            }
+                        },
+                    }).then(function (result) {
+                        if (result.error) {
+                            const errorDiv = document.getElementById('card-errors');
+                            const html = `
+                                <span class="icon" role="alert">
+                                <i class="fas fa-times"></i>
+                                </span>
+                                <span>${result.error.message}</span>`;
+                            $(errorDiv).html(html);
+                            $('#payment-form').fadeToggle(100);
+                            $('#loading-overlay').fadeToggle(100);
+                            card.update({'disabled': false});
+                            $('#submit-button').attr('disabled', false);
+                        } else {
+                            if (result.paymentIntent.status === 'succeeded') {
+                                form.submit();
+                            }
+                        }
+                    });
+                }).fail(() => {
+                    // just reload the page, the error will be in django messages
+                    location.reload();
+                })
+            });
+        </script>
+
+    {% endblock %}
 {% endblock %}
