@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://nerd-shop.herokuapp.com/</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/about-us</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/contact-us</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/accounts/login/</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/cart/</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/victrix-procon-bfg-wireless-controller-ps5</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/dualsense-edge-wireless-pro-controller</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/tunic-ps5</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/xbox-elite-series-2-wireless-controller-black</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/high-on-life-xbox-xs</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/atomic-heart</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/elden-ring</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/powera-fusion-pro-wireless-controller-for-nintendo</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/policies</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/sstar-wars-jedi-survivor-deluxe-edition-xbox</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/seagate-storage-expansion-card-2tb-for-xbox-series</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/?category=Controllers</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/?category=Games</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://nerd-shop.herokuapp.com/shop/?category=Accessories</loc>
+  <lastmod>2023-04-18T20:52:30+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

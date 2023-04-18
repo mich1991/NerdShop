@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /shop/admin-panel
+
+
+Sitemap: sitemap.xml
