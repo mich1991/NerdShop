@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404, reverse, redirect, HttpResponse
 from django.views.generic import TemplateView, DeleteView, View
 from products.models import Product
 from django.contrib import messages
@@ -29,19 +29,42 @@ class CartAddView(View):
 
 
 class CartUpdateView(View):
-    def get(self, request):
-        return render(request, 'cart/cart.html')
+    def post(self, request, pk):
+        product = get_object_or_404(Product, pk=pk)
+        quantity = int(request.POST.get('quantity'))
+        cart = request.session.get('cart', {})
+        if quantity > 0:
+            cart[pk] = quantity
+            messages.success(request,
+                             (f'Updated {product.title} '
+                              f'quantity to {cart[pk]}'))
+        else:
+            cart.pop(pk)
+            messages.success(request,
+                             (f'Removed {product.title} '
+                              f'from your cart'))
 
-    def post(self, request):
-        return render(request, 'cart/cart.html')
+        request.session['cart'] = cart
+        return redirect(reverse('view_cart'))
 
 
-class CartDeleteView(DeleteView):
-    template_name = 'products/admin/admin_delete_product.html'
+class CartDeleteView(View):
+    def post(self, request, pk):
+        print(pk)
+        try:
+            print('here fine')
+            product = get_object_or_404(Product, pk=pk)
+            print('here fine 1')
+            cart = request.session.get('cart', {})
+            print('here fine 2')
+            print(cart)
+            cart.pop(str(pk))
+            print('here fine 3')
+            messages.success(request, f'Removed {product.title} from your cart')
 
-    def get_object(self):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(Product, pk=pk)
+            request.session['cart'] = cart
+            return redirect(reverse('view_cart'))
 
-    def get_success_url(self):
-        return reverse('admin_products_list')
+        except Exception as e:
+            messages.error(request, f'Error removing item: {e}')
+            return HttpResponse(status=500)
