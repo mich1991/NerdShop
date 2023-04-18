@@ -53,15 +53,12 @@ class NewsLetterView(View):
 		return reverse('home')
 
 	def post(self, request):
-		print(request.POST)
 		form = NewsLetterForm(request.POST)
 		if form.is_valid():
 			form.save()
 			form = NewsLetterForm()
-			ctx = {
-				'form': form,
-			}
 			messages.success(request, 'Successfully signed up to a newsletter. Welcome aboard!')
 			return redirect('home')
 		ctx = {'form': form}
+		messages.warning(request, "Are you sure that was corrected email address? Try again")
 		return redirect('home', ctx)
