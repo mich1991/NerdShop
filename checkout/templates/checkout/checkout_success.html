@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block hero-heading %}
-    New gen consoles goodies
+    Your goodies are getting pack
 {% endblock %}
 {% block hero-subheading %}
-    All in one place
+    Now just a little bit of patience.
 {% endblock %}
 {% block content %}
     <div class="container">
@@ -73,7 +73,11 @@
                                 <div class="col-12 col-md-8 text-md-right">
                                     <p class="small mb-0">
                                         {{ item.quantity }} @
-                                        <span class="text-warning">€{{ item.product.price }}</span>
+                                        <span class="text-warning">€{% if item.product.on_sale %}
+                                            {{ item.product.sale_price }}
+                                        {% else %}
+                                            {{ item.product.price }}
+                                        {% endif %}</span>
                                         each
                                     </p>
                                 </div>

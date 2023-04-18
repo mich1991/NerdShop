@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views.generic import ListView, TemplateView, DeleteView, View
+from django.views.generic import TemplateView, DeleteView, View
 from products.models import Product
 from django.contrib import messages
 # Create your views here.
