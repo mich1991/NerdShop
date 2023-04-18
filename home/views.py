@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.views.generic import View, TemplateView
 from products.models import Product
 from .forms import ContactForm, NewsLetterForm
+from django.contrib import messages
 # Create your views here.
 
 
@@ -60,6 +61,7 @@ class NewsLetterView(View):
 			ctx = {
 				'form': form,
 			}
+			messages.success(request, 'Successfully signed up to a newsletter. Welcome aboard!')
 			return redirect('home')
 		ctx = {'form': form}
 		return redirect('home', ctx)

@@ -1,0 +1,26 @@
+<div id="toast"
+     class="alert alert-success alert-dismissible fade show d-flex justify-content-between align-items-center
+         shadow-sm text-black fw-bold fixed-bottom"
+     role="alert">
+    {{ message }} dsadaddasa
+    <button type="button" id="close-button" class="close btn btn-success btn-lg placeholder-wave"
+            data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" class="text-black">&times;</span>
+    </button>
+</div>
+<script>
+    const element = document.querySelector('#toast')
+    const button = document.querySelector('#close-button')
+    const closeAlert = () => {
+        element.style.opacity = 0
+        setTimeout(() => {
+            element.remove()
+        }, 500)
+    }
+    button.addEventListener('click', () => {
+        closeAlert()
+    })
+    setTimeout(() => {
+        closeAlert()
+    }, 5000)
+</script>
