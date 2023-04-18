@@ -1,26 +1,12 @@
+{% load static %}
 <div id="toast"
-     class="alert alert-success alert-dismissible fade show d-flex justify-content-between align-items-center
-         shadow-sm text-black fw-bold fixed-bottom"
+     class="alert alert-success fade show d-flex justify-content-between align-items-center
+         shadow-sm text-black fw-bold fixed-top mx-auto" style="max-width: 300px; margin-top: 15%"
      role="alert">
-    {{ message }} dsadaddasa
+    <span><i class="fa-sharp fa-solid fa-check fa-bounce me-3"></i>{{ message }} dsadaddasa</span>
     <button type="button" id="close-button" class="close btn btn-success btn-lg placeholder-wave"
             data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" class="text-black">&times;</span>
     </button>
 </div>
-<script>
-    const element = document.querySelector('#toast')
-    const button = document.querySelector('#close-button')
-    const closeAlert = () => {
-        element.style.opacity = 0
-        setTimeout(() => {
-            element.remove()
-        }, 500)
-    }
-    button.addEventListener('click', () => {
-        closeAlert()
-    })
-    setTimeout(() => {
-        closeAlert()
-    }, 5000)
-</script>
+<script src="{% static 'js/toast.js' %}"></script>
