@@ -1,12 +1,27 @@
-{% extends "account/base.html" %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% load i18n %}
+{% block meta_description %}Nerd Shop - Verify Your E-mail {% endblock %}
+{% block title %} Nerd Shop -{% trans "Verify Your E-mail Address" %}{% endblock %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block hero-image-url %}
+    url('https://res.cloudinary.com/dxtsy4mcr/image/upload/v1672875464/carl-raw-m3hn2Kn5Bns-unsplash_jqfrri.jpg')
+{% endblock %}
+{% block hero-heading %}
+    Hold your horses
+{% endblock %}
+{% block hero-subheading %}
+    Before you go any further please verify your E-mail
+{% endblock %}
+
+
 
 {% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
+    <div class="container d-flex justify-content-center align-items-center flex-column gap-5 mt-3">
+        <h2>{% trans "Verify Your E-mail Address" %}</h2>
 
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
-
+        <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the
+            signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please
+            contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
+    </div>
 {% endblock %}
