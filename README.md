@@ -388,42 +388,42 @@ in the navbar in mobile view and on desktop view they are just before 'cart' ico
 #### 1. HTML - [W3C Markup Validation](https://validator.w3.org/)
 
 1. Home Page
-
+![](docs/html_validator/home-page.png)
 2. All Products
-
+![](docs/html_validator/product-list.png)
 3. Product Details
-
+![](docs/html_validator/product-details.png)
 4. About
-
+![](docs/html_validator/about-us.png)
 5. Contact
-
+![](docs/html_validator/contact-us.png)
 6. Sign Out
-
+![](docs/html_validator/logout.png)
 7. Sign In
-
+![](docs/html_validator/login.png)
 8. Sign Up
-
+![](docs/html_validator/sign-up.png)
 9. Admin Products list
-
+![](docs/html_validator/admin-list.png)
 10. Admin Add/Edit Product
-
+![](docs/html_validator/admin-edit.png)
 11. Admin Delete Product
-
+![](docs/html_validator/admin-delete.png)
 12. Policies
-
+![](docs/html_validator/policies.png)
 13. Cart
-
+![](docs/html_validator/cart.png)
 14. Checkout
-
+![](docs/html_validator/checkout.png)
 
 
 #### 2. CSS - [W3C CSS Validation](https://jigsaw.w3.org/css-validator/)
 1. app.css
-
+![](docs/css_validator/app.png)
 2. index.css
-
+![](docs/css_validator/index.png)
 3. checkout.css
-
+![](docs/css_validator/checkout.png)
 
 #### 3. Python - PyCharm
 PyCharm took care of quality of code and during development kept reminding me of PEP8 on submitting version
