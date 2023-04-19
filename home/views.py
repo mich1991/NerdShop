@@ -3,15 +3,20 @@ from django.views.generic import View, TemplateView
 from products.models import Product
 from .forms import ContactForm, NewsLetterForm
 from django.contrib import messages
+
+
 # Create your views here.
 
 
 class HomePageView(View):
 	def get(self, request):
 		published_products = Product.objects.filter(status='1').filter(stock=1)
-		ps5_latest_products = published_products.filter(platform__name='PS5').order_by('-created_on')[:4]
-		xbox_latest_products = published_products.filter(platform__name='XBOX X/S').order_by('-created_on')[:4]
-		switch_latest_products = published_products.filter(platform__name='SWITCH').order_by('-created_on')[:4]
+		ps5_latest_products = published_products.filter(
+			platform__name='PS5').order_by('-created_on')[:4]
+		xbox_latest_products = published_products.filter(
+			platform__name='XBOX X/S').order_by('-created_on')[:4]
+		switch_latest_products = published_products.filter(
+			platform__name='SWITCH').order_by('-created_on')[:4]
 		print(request)
 		ctx = {
 			'ps5': ps5_latest_products,
@@ -34,7 +39,7 @@ class ContactPageView(View):
 			form = ContactForm()
 			ctx = {
 				'form': form,
-				}
+			}
 			return render(request, 'home/contact.html', ctx)
 		ctx = {'form': form}
 		return render(request, 'home/contact.html', ctx)
@@ -57,8 +62,10 @@ class NewsLetterView(View):
 		if form.is_valid():
 			form.save()
 			form = NewsLetterForm()
-			messages.success(request, 'Successfully signed up to a newsletter. Welcome aboard!')
+			messages.success(request,
+			                 'Successfully signed up to a newsletter. Welcome aboard!')
 			return redirect('home')
 		ctx = {'form': form}
-		messages.warning(request, "Are you sure that was corrected email address? Try again")
+		messages.warning(request,
+		                 "Are you sure that was corrected email address? Try again")
 		return redirect('home', ctx)

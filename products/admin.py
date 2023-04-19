@@ -9,8 +9,11 @@ from django_summernote.admin import SummernoteModelAdmin
 class ProductAdmin(SummernoteModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}
 	summernote_fields = ('long_description',)
-	list_display = ('title', 'category', 'platform', 'price', 'on_sale', 'sale_price', 'created_on', 'updated_on', 'stock', 'status')
-	list_filter = ('category', 'author', 'created_on', 'updated_on', 'stock', 'status')
+	list_display = (
+	'title', 'category', 'platform', 'price', 'on_sale', 'sale_price',
+	'created_on', 'updated_on', 'stock', 'status')
+	list_filter = (
+	'category', 'author', 'created_on', 'updated_on', 'stock', 'status')
 	ordering = ('created_on',)
 	search_fields = ['sku', 'title', 'long_description', 'short_description']
 
@@ -25,4 +28,3 @@ class CategoryAdmin(admin.ModelAdmin):
 class PlatformAdmin(admin.ModelAdmin):
 	list_display = ('name',)
 	list_filter = ('name',)
-

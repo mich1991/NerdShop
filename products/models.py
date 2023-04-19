@@ -34,14 +34,18 @@ class Product(models.Model):
 	slug = models.SlugField(unique=True)
 	status = models.IntegerField(choices=STATUS, default=0)
 	stock = models.IntegerField(choices=STOCK, default=0)
-	author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', null=True)
-	category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='category', null=True)
-	platform = models.ForeignKey(Platform, on_delete=models.SET_NULL, related_name='platform', null=True)
+	author = models.ForeignKey(User, on_delete=models.CASCADE,
+	                           related_name='posts', null=True)
+	category = models.ForeignKey(Category, on_delete=models.SET_NULL,
+	                             related_name='category', null=True)
+	platform = models.ForeignKey(Platform, on_delete=models.SET_NULL,
+	                             related_name='platform', null=True)
 	created_on = models.DateTimeField(auto_now_add=True)
 	updated_on = models.DateTimeField(auto_now=True)
 	price = models.DecimalField(max_digits=6, decimal_places=2)
 	on_sale = models.BooleanField(default=False, null=True, blank=True)
-	sale_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+	sale_price = models.DecimalField(max_digits=6, decimal_places=2, null=True,
+	                                 blank=True)
 	has_review = models.BooleanField(default=False, null=True, blank=True)
 	review_url = models.URLField(max_length=1024, null=True, blank=True)
 

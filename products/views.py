@@ -5,6 +5,8 @@ from .models import Product, Category, Platform
 from django.contrib.auth.decorators import user_passes_test
 from django.utils.text import slugify
 from .forms import ProductForm
+
+
 # Create your views here.
 
 
@@ -15,13 +17,18 @@ class ProductListView(ListView):
 
 	def get_queryset(self, **kwargs):
 		url_query = self.request.GET
-		base_query = super().get_queryset().filter(status='1', stock='1').order_by('-created_on')
+		base_query = super().get_queryset().filter(status='1',
+		                                           stock='1').order_by(
+			'-created_on')
 		if url_query.get('title'):
-			base_query = base_query.filter(title__icontains=url_query.get('title'))
+			base_query = base_query.filter(
+				title__icontains=url_query.get('title'))
 		if url_query.get('category'):
-			base_query = base_query.filter(category__name=url_query.get('category'))
+			base_query = base_query.filter(
+				category__name=url_query.get('category'))
 		if url_query.get('platform'):
-			base_query = base_query.filter(platform__name=url_query.get('platform'))
+			base_query = base_query.filter(
+				platform__name=url_query.get('platform'))
 		return base_query
 
 	def get_context_data(self, **kwargs):
@@ -29,9 +36,12 @@ class ProductListView(ListView):
 		context['categories'] = Category.objects.all()
 		context['platforms'] = Platform.objects.all()
 		context['form'] = {
-			'title': self.request.GET.get('title') if self.request.GET.get('title') else '',
-			'category': self.request.GET.get('category') if self.request.GET.get('category') else '',
-			'platform': self.request.GET.get('platform') if self.request.GET.get('platform') else ''
+			'title': self.request.GET.get('title') if self.request.GET.get(
+				'title') else '',
+			'category': self.request.GET.get(
+				'category') if self.request.GET.get('category') else '',
+			'platform': self.request.GET.get(
+				'platform') if self.request.GET.get('platform') else ''
 		}
 		return context
 
@@ -48,7 +58,8 @@ class ProductDetailView(View):
 		return render(request, 'products/product_details.html', ctx)
 
 
-@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='home',), name='dispatch')
+@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='home', ),
+                  name='dispatch')
 class AdminProductListView(ListView):
 	"""GET List of products that's belongs to an admin"""
 	model = Product
@@ -59,11 +70,14 @@ class AdminProductListView(ListView):
 		url_query = self.request.GET
 		base_query = super().get_queryset().order_by('-created_on')
 		if url_query.get('title'):
-			base_query = base_query.filter(title__icontains=url_query.get('title'))
+			base_query = base_query.filter(
+				title__icontains=url_query.get('title'))
 		if url_query.get('category'):
-			base_query = base_query.filter(category__name=url_query.get('category'))
+			base_query = base_query.filter(
+				category__name=url_query.get('category'))
 		if url_query.get('category'):
-			base_query = base_query.filter(platform__name=url_query.get('platform'))
+			base_query = base_query.filter(
+				platform__name=url_query.get('platform'))
 		return base_query
 
 	def get_context_data(self, **kwargs):
@@ -71,14 +85,18 @@ class AdminProductListView(ListView):
 		context['categories'] = Category.objects.all()
 		context['platforms'] = Platform.objects.all()
 		context['form'] = {
-			'title': self.request.GET.get('title') if self.request.GET.get('title') else '',
-			'category': self.request.GET.get('category') if self.request.GET.get('category') else '',
-			'platform': self.request.GET.get('platform') if self.request.GET.get('platform') else '',
+			'title': self.request.GET.get('title') if self.request.GET.get(
+				'title') else '',
+			'category': self.request.GET.get(
+				'category') if self.request.GET.get('category') else '',
+			'platform': self.request.GET.get(
+				'platform') if self.request.GET.get('platform') else '',
 		}
 		return context
 
 
-@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='home',), name='dispatch')
+@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='home', ),
+                  name='dispatch')
 class AdminAddProductView(View):
 	def get(self, request):
 		ctx = {
@@ -103,7 +121,8 @@ class AdminAddProductView(View):
 		return render(request, 'products/admin/admin_add_product.html', ctx)
 
 
-@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='home',), name='dispatch')
+@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='home', ),
+                  name='dispatch')
 class AdminEditProductView(View):
 	def get(self, request, pk):
 		product = Product.objects.get(pk=pk)
@@ -115,7 +134,8 @@ class AdminEditProductView(View):
 
 	def post(self, request, pk):
 		product_instance = Product.objects.get(pk=pk)
-		form = ProductForm(request.POST, request.FILES, instance=product_instance)
+		form = ProductForm(request.POST, request.FILES,
+		                   instance=product_instance)
 		if form.is_valid():
 			product = form.save(commit=False)
 			product.slug = slugify(product.title)
@@ -134,7 +154,8 @@ class AdminEditProductView(View):
 		return render(request, 'products/admin/admin_add_product.html', ctx)
 
 
-@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='/',), name='dispatch')
+@method_decorator(user_passes_test(lambda u: u.is_staff, login_url='/', ),
+                  name='dispatch')
 class AdminDeleteProductView(DeleteView):
 	template_name = 'products/admin/admin_delete_product.html'
 

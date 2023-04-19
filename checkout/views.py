@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, HttpResponse, \
+	get_object_or_404
 from django.views.generic import View
 from products.models import Product
 from profiles.forms import ProfileForm
@@ -100,7 +101,8 @@ class CheckoutViewPage(View):
 						)
 						order_line_item.save()
 					else:
-						for size, quantity in item_data['items_by_size'].items():
+						for size, quantity in item_data[
+							'items_by_size'].items():
 							order_line_item = OrderLineItem(
 								order=order,
 								product=product,
@@ -182,4 +184,3 @@ class CheckoutSuccessView(View):
 		}
 
 		return render(request, template, context)
-

@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect, reverse
-from django.views.generic import View, ListView, DetailView
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import View, DetailView
 
 from checkout.models import Order
 from .models import Profile

@@ -9,7 +9,7 @@ Nerd Shop is an e-commerce store with products connected to video games consoles
 Nerd Shop is also a part of Nerd Cave blog which was part of my Code Institute Project-4. 
 Huge reason between connecting those two projects is to point out how similar can be creating blog and e-commerce store in many aspects.
 
-Whole CRUD operations are enabled due custom 'Author Panel' available to users with staff member permission.
+Whole CRUD operations are enabled due custom 'Admin Panel' available to users with staff member permission.
 Permissions can be assigned by Admin through django admin page.
 This site has been created as a portfolio project for Code Institute. Project - 5
 
