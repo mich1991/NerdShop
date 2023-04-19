@@ -432,34 +432,34 @@ no issues where detected.
 ### Lighthouse Testing <a name="lighthouse-testing"></a>
 1. About Page
     * Desktop
-   
+   ![](docs/lighthouse/desktop-about.png)
     * Mobile
-   
+   ![](docs/lighthouse/mobile-about.png)
 2. All Products Page
     * Desktop
    ![](docs/lighthouse/desktop-product-list.png)
     * Mobile
    ![](docs/lighthouse/mobile-product-list.png)
-3. Admin Delete Post
+3. Admin Delete Product
     * Desktop
-   
+   ![](docs/lighthouse/admin-delete-dekstop.png)
     * Mobile
-   
+   ![](docs/lighthouse/admin-delete-mobile.png)
 4. Admin Add/Edit Product (same view)
     * Desktop
-   
+   ![](docs/lighthouse/admin-edit-desktop.png)
     * Mobile
-   
+   ![](docs/lighthouse/admin-edit-mobile.png)
 5. Admin Product List
     * Desktop
-   
+   ![](docs/lighthouse/admin-list-desktop.png)
     * Mobile
-   
+   ![](docs/lighthouse/admin-list-mobile.png)
 6. Contact Page
     * Desktop
-   
+   ![](docs/lighthouse/contact-desktop.png)
     * Mobile
-   
+   ![](docs/lighthouse/contact-mobile.png)
 7. Home Page
     * Desktop
    ![](docs/lighthouse/desktop-home.png)
@@ -467,14 +467,14 @@ no issues where detected.
    ![](docs/lighthouse/mobile-home.png)
 8. Sign In Page
     * Desktop
-   
+   ![](docs/lighthouse/sign-in-desktop.png)
     * Mobile
-   
+   ![](docs/lighthouse/sign-in-mobile.png)
 9. Sign Out Page
     * Desktop
-   
+   ![](docs/lighthouse/sign-out-desktop.png)
     * Mobile
-   
+   ![](docs/lighthouse/sign-out-mobile.png)
 10. Cart Page
     * Desktop
     ![](docs/lighthouse/desktop-cart.png)
@@ -482,25 +482,36 @@ no issues where detected.
     ![](docs/lighthouse/mobile-cart.png)
 11. Policies Page
     * Desktop
-    
+    ![](docs/lighthouse/policies-desktop.png)
     * Mobile
-
+![](docs/lighthouse/policies-mobile.png)
 12. Profile Page
     * Desktop
-    
+    ![](docs/lighthouse/profile-desktop.png)
     * Mobile
-
+![](docs/lighthouse/profile-mobile.png)
 13. Order History Page
     * Desktop
-    
+    ![](docs/lighthouse/order-history-desktop.png)
     * Mobile
-    
+    ![](docs/lighthouse/order-history-mobile.png)
 14. Product Details Page
     * Desktop
    ![](docs/lighthouse/desktop-product-details.png)
     * Mobile
    ![](docs/lighthouse/mobile-product-details.png)
 
+15. Checkout Page
+    * Desktop
+    ![](docs/lighthouse/desktop-checkout.png)
+    * Mobile
+![](docs/lighthouse/mobile-checkout.png)
+
+16. Order Details Page
+    * Desktop
+    ![](docs/lighthouse/order-details-desktop.png)
+    * Mobile
+![](docs/lighthouse/order-details-mobile.png)
 
 ## Deployment <a name="deployment"></a>
 
