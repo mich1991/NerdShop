@@ -20,6 +20,7 @@ class CartAddView(View):
 		else:
 			quantity = 1
 		product_id = str(pk)
+		product = get_object_or_404(Product, pk=pk)
 		redirect_url = request.POST.get('redirect_url')
 		cart = request.session.get('cart', {})
 		print(request.session.get('cart_items'))
@@ -28,6 +29,9 @@ class CartAddView(View):
 		else:
 			cart[product_id] = quantity
 		request.session['cart'] = cart
+		messages.success(request,
+		                 (f'Added {product.title} '
+		                  f'quantity to {cart[product_id]}'))
 		return redirect(redirect_url)
 
 
@@ -55,14 +59,10 @@ class CartDeleteView(View):
 	def post(self, request, pk):
 		print(pk)
 		try:
-			print('here fine')
 			product = get_object_or_404(Product, pk=pk)
-			print('here fine 1')
 			cart = request.session.get('cart', {})
-			print('here fine 2')
 			print(cart)
 			cart.pop(str(pk))
-			print('here fine 3')
 			messages.success(request, f'Removed {product.title} from your cart')
 
 			request.session['cart'] = cart

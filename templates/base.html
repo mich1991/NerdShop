@@ -121,7 +121,7 @@
 {% endblock %}
 {# CONTENT END #}
 <div id="cart">
-    <a class="{% if grand_total %} btn btn-primary font-weight-bold{% else %}text-black{% endif %} nav-link ms-md-2"
+    <a class="{% if grand_total %} btn btn-primary font-weight-bold{% else %}text-black{% endif %} nav-link ms-md-2 rounded-5"
        href="{% url 'view_cart' %}">
         <div class="text-center text-warning">
             <i class="fas fa-shopping-bag"></i>
@@ -135,6 +135,7 @@
 </div>
 {% if messages %}
     <div class="message-container">
+
         {% for message in messages %}
             {% with message.level as level %}
                 {% if level == 40 %}
