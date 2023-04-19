@@ -57,7 +57,6 @@ class CartUpdateView(View):
 
 class CartDeleteView(View):
 	def post(self, request, pk):
-		print(pk)
 		try:
 			product = get_object_or_404(Product, pk=pk)
 			cart = request.session.get('cart', {})
