@@ -24,14 +24,8 @@
                                      alt="{{ product.title }}">
                             </a>
                         {% else %}
-                            <a href="">
-                                <img class="card-img-top img-fluid" src="{% if product.image %}
-                            {{ product.image.url }}
-                            {% else %}
-                            https://nerd-shop.s3.amazonaws.com/media/noimage.png
-                            {% endif %}"
+                                <img class="card-img-top img-fluid rounded" src="{{ MEDIA_URL }}/media/noimage.png"
                                      alt="{{ product.title }}">
-                            </a>
                         {% endif %}
                     </div>
                 </div>

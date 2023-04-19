@@ -23,9 +23,9 @@
                         <div style="width: 20em" class="">
                             <div class="card border-primary mx-2 my-2 position-relative">
                                 <img src="{% if product.image %}
-                            {{ product.image.url }}
+                                {{ product.image.url }}
                             {% else %}
-                            https://nerd-shop.s3.amazonaws.com/media/noimage.png
+                                {{ MEDIA_URL }}/media/noimage.png
                             {% endif %}" class="card-img-top" alt="{{ product.title }}">
                                 <div class="card-body d-flex flex-column">
                                     <div class="flex-grow-1">
