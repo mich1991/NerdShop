@@ -9,6 +9,9 @@ from django.contrib import messages
 from cart.context import cart_contents
 from profiles.models import Profile
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 import json
 import stripe
 
@@ -174,6 +177,21 @@ class CheckoutSuccessView(View):
 		messages.success(request, f'Order successfully processed! \
 		       Your order number is {order_number}. A confirmation \
 		       email will be sent to {order.email}.')
+
+		cust_email = order.email
+		subject = render_to_string(
+			'checkout/confirmation_emails/confirmation_email_subject.txt',
+			{'order': order})
+		body = render_to_string(
+			'checkout/confirmation_emails/confirmation_email_body.txt',
+			{'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+		send_mail(
+			subject,
+			body,
+			settings.DEFAULT_FROM_EMAIL,
+			[cust_email]
+		)
 
 		if 'cart' in request.session:
 			del request.session['cart']
