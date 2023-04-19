@@ -1,6 +1,6 @@
-# Nerd Cave
+# Nerd Shop
 
-[View published site on Heroku](https://nerd-cave.herokuapp.com/).
+[View published site on Heroku](http://nerd-shop.herokuapp.com/).
 
 
 ## Project Overview
@@ -18,6 +18,7 @@ This site has been created as a portfolio project for Code Institute. Project - 
 1. [User Experience (UX)](#ux)
     * [Strategy](#strategy)
         * [Project Goals](#project-goals)
+        * [Marketing Strategy](#marketing)
         * [User Stories](#user-stories)
     * [Scope](#scope)
     * [Design](#design)
@@ -54,6 +55,14 @@ The main target customers/users are people interested in video games & consoles 
 3. Casual gamers looking for new games
 4. Parents looking for good gift for theirs kids
 5. Potentially youtube NerdCave/NerdShop channel subscribers.
+
+Potential sources of income would be direct sales but also increased traffic on both Nerd Shop & Nerd Cave with some ads on the websites.
+
+### Marketing Strategy <a name="marketing"></a>
+Marketing plan for the Nerd Shop is utilizing existing Nerd Cave blog as initial source of customers. Probably also YT channel in the future.
+Utilizing newsletter emails as free marketing tool. Fanpage on Facebook would also help with that.
+Combining Nerd Cave Blog and the Nerd Shop products long description with more Keywords can provide great SEO and website traffic.
+Also signing for Google Merchant program would be beneficial for the store.
 
 ### User Stories <a name="user-stories"></a>
 
@@ -117,10 +126,8 @@ Main reason behind that was to create similar UX and UI that Nerd Cave has so **
 
 ### Wireframes <a name="wireframes"></a>
 
-**TODO: Add Images here**
-Lots of wireframes are re-used from Nerd Cave to keep consistent design between both siblings projects. Both of them would be merged together in the future.
-I've managed to stick to my original wireframes hand drawing.
-Mobile wireframes are only for phone devices, for tablets I tried to keep the design as close to desktop as possible.
+For consistency in the Design between Nerd Shop and Nerd Cave I have reused wireframes from the previous project [Nerd Cave](https://github.com/mich1991/Nerd_Cave). Some changes were required due difference between purposes of the websites and different functionalities. In the future Nerd Cave will be combined with Nerd Shop as a single Django project.
+
 
 ### Database Structure <a name="database-structure"></a>
 
