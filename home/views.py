@@ -40,8 +40,10 @@ class ContactPageView(View):
 			ctx = {
 				'form': form,
 			}
+			messages.success(request, 'Message sent successfully')
 			return render(request, 'home/contact.html', ctx)
 		ctx = {'form': form}
+		messages.error(request, 'Ups...something went wrong. Try again')
 		return render(request, 'home/contact.html', ctx)
 
 
