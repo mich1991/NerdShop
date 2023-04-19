@@ -437,9 +437,9 @@ no issues where detected.
    
 2. All Products Page
     * Desktop
-   
+   ![](docs/lighthouse/desktop-product-list.png)
     * Mobile
-   
+   ![](docs/lighthouse/mobile-product-list.png)
 3. Admin Delete Post
     * Desktop
    
@@ -462,9 +462,9 @@ no issues where detected.
    
 7. Home Page
     * Desktop
-   
+   ![](docs/lighthouse/desktop-home.png)
     * Mobile
-   
+   ![](docs/lighthouse/mobile-home.png)
 8. Sign In Page
     * Desktop
    
@@ -477,9 +477,9 @@ no issues where detected.
    
 10. Cart Page
     * Desktop
-    
+    ![](docs/lighthouse/desktop-cart.png)
     * Mobile
-    
+    ![](docs/lighthouse/mobile-cart.png)
 11. Policies Page
     * Desktop
     
@@ -497,9 +497,9 @@ no issues where detected.
     
 14. Product Details Page
     * Desktop
-   
+   ![](docs/lighthouse/desktop-product-details.png)
     * Mobile
-   
+   ![](docs/lighthouse/mobile-product-details.png)
 
 
 ## Deployment <a name="deployment"></a>
