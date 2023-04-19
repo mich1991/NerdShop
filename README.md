@@ -136,10 +136,10 @@ A relational database was used for this project.
 During development was used PostgresSQL database hosted on [ElephantSQL](https://elephantsql.com/).
 
 
-**TODO: Add image here**
+![](docs/db/diagram.png)
+*Img exported thanks to [python-pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
-
-The database diagram was created using [dbdiagram.io](https://dbdiagram.io/home).
+The database diagram was designed with [dbdiagram.io](https://dbdiagram.io/home).
 
 The database contains the following similar models to ones in CI course examples plus one custom model - Contact.
 
