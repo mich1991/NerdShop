@@ -12,6 +12,7 @@
     {{ product.platform }} | {{ product.category }}
 {% endblock %}
 {% block content %}
+    <a href="{{ request.META.HTTP_REFERER }}" id="go_back" class="btn btn-outline-info">Back to the list</a>
     <div class="container my-4">
         <div class="container-fluid">
             <div class="row">
@@ -105,19 +106,21 @@
         </div>
     </div>
     <script>
-        const addToCartForm = document.querySelector('#add_to_cart_form')
-        const decrementQuantityBtn = document.querySelector('#decrement_quantity')
-        const incrementQuantityBtn = document.querySelector('#increment_quantity')
-        const quantityInput = document.querySelector('#quantity_input')
+        const addToCartForm = document.querySelector('#add_to_cart_form');
+        const goBackBtn = document.querySelector('#go_back');
+        const decrementQuantityBtn = document.querySelector('#decrement_quantity');
+        const incrementQuantityBtn = document.querySelector('#increment_quantity');
+        const quantityInput = document.querySelector('#quantity_input');
         decrementQuantityBtn.addEventListener('click', () => {
             if (quantityInput.value > 1) {
-                quantityInput.value--
+                quantityInput.value--;
             }
-        })
+        });
         incrementQuantityBtn.addEventListener('click', () => {
             if (quantityInput.value < 99) {
-                quantityInput.value++
+                quantityInput.value++;
             }
-        })
+        });
+
     </script>
 {% endblock %}
