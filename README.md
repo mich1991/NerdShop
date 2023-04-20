@@ -255,6 +255,9 @@ Add more images that would suit my 'Hero' header. Ideally 1 image per page.
 
 Remove JQuery from project. It's being used only in checkout page. Could be easily rewritten in vanilla JS.
 
+Add Breadcrumbs and refactor shop routes to utilize more common and SEO friendly scheme
+ex. shop/ps5/controllers/?brand=Sony
+
 ## Technologies Used <a name="tech-used"></a>
 
 * HTML
