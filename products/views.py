@@ -5,7 +5,7 @@ from .models import Product, Category, Platform
 from django.contrib.auth.decorators import user_passes_test
 from django.utils.text import slugify
 from .forms import ProductForm
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -116,7 +116,9 @@ class AdminAddProductView(View):
 				'form': form,
 				'success': True
 			}
+			messages.success(request, 'New products added successfully')
 			return render(request, 'products/admin/admin_add_product.html', ctx)
+		messages.error(request, 'Something went wrong')
 		ctx = {'form': form}
 		return render(request, 'products/admin/admin_add_product.html', ctx)
 
@@ -146,7 +148,9 @@ class AdminEditProductView(View):
 				'success': True,
 				'edit': True,
 			}
+			messages.success(request, 'Edit product success')
 			return render(request, 'products/admin/admin_add_product.html', ctx)
+		messages.error(request, 'Something went wrong')
 		ctx = {
 			'form': form,
 			'edit': True,
@@ -164,4 +168,5 @@ class AdminDeleteProductView(DeleteView):
 		return get_object_or_404(Product, pk=pk)
 
 	def get_success_url(self):
+		messages.success('Product deleted')
 		return reverse('admin_products_list')
