@@ -326,7 +326,7 @@ GitHub project page can be found [here](https://github.com/users/mich1991/projec
 * If customer doesn't remember whole name of the product still can use searching by title and provides just a few letters and still may find the correct product customer was looking for.
 #### US-6. As a User I can create my account so that I can save my delivery details, see order history:
 * Sign Up and Sign In is clearly visible in navbar. As it's makes the most of sense they are last 2 items
-in the navbar in mobile view and on desktop view they are just before 'cart' icon.
+in the navbar.
 * Upon Sign Up username and password, email & email confirmation is required.
 * Sign In is simple and upon login in user is redirected to home page.
 * If user is signed in, navbar is getting changed. Sign Up/Sign In option are replaced with My Account route.
