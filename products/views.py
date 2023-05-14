@@ -7,6 +7,7 @@ from django.utils.text import slugify
 from .forms import ProductForm
 from django.contrib import messages
 
+
 # Create your views here.
 
 
@@ -168,5 +169,5 @@ class AdminDeleteProductView(DeleteView):
 		return get_object_or_404(Product, pk=pk)
 
 	def get_success_url(self):
-		messages.success('Product deleted')
+		messages.success(self.request, "Product deleted successfully")
 		return reverse('admin_products_list')

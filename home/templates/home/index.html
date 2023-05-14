@@ -25,7 +25,7 @@
                 {% for product in ps5 %}
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="card border-primary mx-2 my-2 position-relative">
-                            <img src="{% if product.image.url %}
+                            <img src="{% if product.image and product.image.url %}
                                 {{ product.image.url }}
                             {% else %}
                                 {{ MEDIA_URL }}/media/noimage.png
@@ -73,7 +73,7 @@
                 {% for product in xbox %}
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="card border-primary mx-2 my-2 position-relative">
-                            <img src="{% if product.image.url %}
+                            <img src="{% if product.image and product.image.url %}
                                 {{ product.image.url }}
                             {% else %}
                                 {{ MEDIA_URL }}/media/noimage.png
@@ -122,7 +122,7 @@
                 {% for product in switch %}
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="card border-primary mx-2 my-2 position-relative">
-                            <img src="{% if product.image %}
+                            <img src="{% if product.image and product.image.url %}
                                 {{ product.image.url }}
                             {% else %}
                                 {{ MEDIA_URL }}/media/noimage.png
