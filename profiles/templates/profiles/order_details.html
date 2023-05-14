@@ -27,7 +27,7 @@
                                 <img class="img-fluid rounded" src="{{ item.product.image.url }}"
                                      alt="{{ product.title }}">
                             {% else %}
-                                <img class="img-fluid rounded" src="{{ STATIC_URL }}img/no-image.jpg"
+                                <img class="img-fluid rounded" src="{% get_media_prefix %}noimage.png"
                                      alt="{{ product.title }}">
                             {% endif %}
                         </a>

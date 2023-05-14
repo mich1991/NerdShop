@@ -28,7 +28,7 @@
                             <img src="{% if product.image and product.image.url %}
                                 {{ product.image.url }}
                             {% else %}
-                                {{ MEDIA_URL }}/media/noimage.png
+                                {% get_media_prefix %}noimage.png
                             {% endif %}" class="card-img-top" alt="{{ product.title }}">
                             <div class="card-body d-flex flex-column">
                                 <div class="flex-grow-1">
@@ -76,7 +76,7 @@
                             <img src="{% if product.image and product.image.url %}
                                 {{ product.image.url }}
                             {% else %}
-                                {{ MEDIA_URL }}/media/noimage.png
+                                {% get_media_prefix %}noimage.png
                             {% endif %}"
                                  class="card-img-top" alt="{{ product.title }}">
                             <div class="card-body d-flex flex-column">
@@ -125,7 +125,7 @@
                             <img src="{% if product.image and product.image.url %}
                                 {{ product.image.url }}
                             {% else %}
-                                {{ MEDIA_URL }}/media/noimage.png
+                                {% get_media_prefix %}noimage.png
                             {% endif %}" class="card-img-top" alt="{{ product.title }}">
                             <div class="card-body d-flex flex-column">
                                 <div class="flex-grow-1">
