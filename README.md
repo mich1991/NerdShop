@@ -63,7 +63,7 @@ Marketing plan for the Nerd Shop is utilizing existing Nerd Cave blog as initial
 Utilizing newsletter emails as free marketing tool. Fanpage on Facebook would also help with that.
 Combining Nerd Cave Blog and the Nerd Shop products long description with more Keywords can provide great SEO and website traffic.
 Also signing for Google Merchant program would be beneficial for the store.
-
+![](docs/fb_wireframe/FB page.png)
 ### User Stories <a name="user-stories"></a>
 
 * __Site User Goals:__
@@ -127,8 +127,16 @@ Main reason behind that was to create similar UX and UI that Nerd Cave has so **
 ### Wireframes <a name="wireframes"></a>
 
 For consistency in the Design between Nerd Shop and Nerd Cave I have reused wireframes from the previous project [Nerd Cave](https://github.com/mich1991/Nerd_Cave). Some changes were required due difference between purposes of the websites and different functionalities. In the future Nerd Cave will be combined with Nerd Shop as a single Django project.
-
-
+#### Base Layout and Home page
+![](docs/wireframes/base_home_wire.png)
+#### Products list and product details
+![](docs/wireframes/all_products_wire.png)
+#### Orders history
+![](docs/wireframes/order_history_wire.png)
+#### Cart and checkout page
+![](docs/wireframes/cart_checkout_wire.png)
+#### Contact page and about page
+![](docs/wireframes/contact_about_wire.png)
 ### Database Structure <a name="database-structure"></a>
 
 A relational database was used for this project. 
