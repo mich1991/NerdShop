@@ -538,7 +538,23 @@ The following steps were followed to deploy this project:
 1. Create free account at [AWS](https://aws.amazon.com/)
 2. Credit card info will be required
 3. Follow those [tutorial]('https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html') and [documentation]('https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html')
-
+4. Bucket has to be set as publicly accessible
+5. Credentials mentioned in tutorial has to be stored in .env file. Secret key as AWS_SECRET_ACCESS_KEY and Access key as AWS_ACCESS_KEY_ID
+6. Bucket structure can be seen below:
+    ![](docs/aws_structure/media_static.png)
+7. Media includes all the images in the project folder.
+8. Static folder that must be included
+![](docs/aws_structure/static.png)
+* "Admin/" folder includes django admin css files
+* "checkout/" folder includes css & js files from checkout app static folder
+![](docs/aws_structure/checkout.png)
+* "css/" folder includes global styling for the project
+![](docs/aws_structure/css.png)
+* "favicon/" folder includes static/favicon content from the root of the project.
+* "js/" folder includes toast.js
+![](docs/aws_structure/js.png)
+* "Summernote/" folder includes styling and .js files from summernote library
+![](../../Desktop/summer.png)
 ### ElephantSQL
 1. Create free account at [ElephantSQL](https://elephantsql.com)
 2. Create New Instance of database. After it's done copy 'URL' whole path.
