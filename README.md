@@ -537,7 +537,7 @@ The following steps were followed to deploy this project:
 ### AWS S3
 1. Create free account at [AWS](https://aws.amazon.com/)
 2. Credit card info will be required
-3. Follow those [tutorial]('https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html') and [documentation]('https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html')
+3. Follow those [tutorial](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) and [documentation](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
 4. Bucket has to be set as publicly accessible
 5. Credentials mentioned in tutorial has to be stored in .env file. Secret key as AWS_SECRET_ACCESS_KEY and Access key as AWS_ACCESS_KEY_ID
 6. Bucket structure can be seen below:
